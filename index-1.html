@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MTS 104 CBT Portal</title>
+    <!-- External Typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Link to external stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Start Screen State -->
+    <div id="start-screen" class="state-card">
+        <h1>MTS 104 Assessment Portal</h1>
+        <p class="subtitle">Introductory Mathematics Tutorial Exam<br>Topics: Vectors, Vector Applications & Circle Geometry</p>
+        <div class="exam-meta">
+            <p><strong>Total Questions:</strong> 50 (Randomly Shuffled from 150 pool)</p>
+            <p><strong>Time Limit:</strong> 30 Minutes</p>
+        </div>
+        <button class="control-btn start-btn" onclick="startExam()">Start Examination</button>
+    </div>
+
+    <!-- Exam Header Dashboard -->
+    <header id="exam-header" class="hidden">
+        <div class="header-top">
+            <h1>MTS 104: Introductory Mathematics</h1>
+            <div class="timer-badge">
+                <span class="timer-label">TIME LEFT:</span>
+                <span id="timer-string">30:00</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Interactive Exam Body Workspace -->
+    <div class="container hidden" id="exam-workspace">
+        <main class="quiz-card">
+            <span class="category-tag" id="question-topic">Topic Loading...</span>
+            <div class="question-text" id="question-text">
+                Loading assessment item...
+            </div>
+            
+            <div class="options-container" id="options-container">
+                <!-- Dynamically loaded via JavaScript -->
+            </div>
+
+            <div class="controls">
+                <button class="control-btn prev-btn" id="prev-btn" onclick="changeQuestion(-1)">Previous</button>
+                <button class="control-btn next-btn" id="next-btn" onclick="changeQuestion(1)">Next</button>
+                <button class="control-btn submit-btn" onclick="triggerManualSubmit()">Submit Exam</button>
+            </div>
+        </main>
+
+        <!-- Navigation Matrix Sidebar -->
+        <aside class="sidebar">
+            <h3>Question Palette</h3>
+            <div class="matrix-grid" id="matrix-grid">
+                <!-- Dynamically loaded via JavaScript -->
+            </div>
+        </aside>
+    </div>
+
+    <!-- Post-Evaluation Results Workspace -->
+    <div id="results-workspace" class="container hidden">
+        <div class="results-box">
+            <div class="score-banner">
+                <h2>Examination Complete</h2>
+                <div class="score-val"><span id="score-out">0</span> / 40</div>
+                <p class="score-meta">Review your answers with step-by-step technical explanations below.</p>
+                <button class="control-btn retake-btn" onclick="returnToStart()">Retake New Shuffled Exam</button>
+            </div>
+            
+            <!-- Detailed Corrections Report Container -->
+            <div id="corrections-container" class="results-box">
+                <!-- Dynamically loaded via JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Reference to External JavaScript Logic Architecture -->
+    <script src="script.js"></script>
+</body>
+</html>
